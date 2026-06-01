@@ -1,0 +1,69 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-dm: "DM Sans", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+html,
+body {
+  background: #0f1117;
+  color: #e8eaf6;
+  font-family: var(--font-dm);
+}
+
+h1,
+h2,
+h3 {
+  letter-spacing: 0.01em;
+}
+
+.task-card {
+  transition: transform 150ms ease, box-shadow 150ms ease;
+}
+.task-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #2e3350;
+  border-radius: 4px;
+}
+
+@keyframes notifPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(244, 67, 54, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 6px rgba(244, 67, 54, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(244, 67, 54, 0);
+  }
+}
+.notif-pulse {
+  animation: notifPulse 1.8s infinite;
+}
+
+input,
+select,
+textarea {
+  font-family: var(--font-dm);
+}
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #6c8ef5 !important;
+}
