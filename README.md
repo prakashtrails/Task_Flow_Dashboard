@@ -7,7 +7,6 @@ and a **Next.js** web client, covering **auth, the task board, and the create �
 project_2/
 ├── backend/         # FastAPI REST API
 ├── web/             # Next.js App Router web client
-├── docker-compose.yml
 └── README.md
 ```
 
@@ -20,7 +19,7 @@ project_2/
 - Dependencies: add (with **cycle detection**), remove, **auto-unblock** cascade on approval
 - Approvals: approve / request-changes with history
 - Progress updates, notifications (personal feed + mark read), metrics endpoints
-- Seed data (Curl'o Hair team: 8 users, 140 assigned tasks), pytest suite, Dockerfile
+- Seed data (Curl'o Hair team: 8 users, 140 assigned tasks), pytest suite
 
 **Web**
 - Login (seeded credentials), token storage + axios refresh interceptor
@@ -63,14 +62,11 @@ each in their own window. The backend auto-reloads on code changes; the web app 
 cd backend
 python -m venv .venv && .venv/Scripts/activate        # or: source .venv/bin/activate
 pip install -r requirements.txt
-cp .env.example .env        # then set DATABASE_URL=sqlite+aiosqlite:///./dev.db for a no-Docker run
+cp .env.example .env        # then set DATABASE_URL=sqlite+aiosqlite:///./dev.db for a local run
 uvicorn app.main:app --reload                          # auto-creates tables + seeds on first boot
 
 # Web
 cd web && npm install && cp .env.local.example .env.local && npm run dev
-
-# Or full Postgres stack via Docker
-docker compose up --build                              # API :8000, Postgres :5432
 ```
 
 Seeded logins (password for all: `password123`) — the Curl'o Hair team:
