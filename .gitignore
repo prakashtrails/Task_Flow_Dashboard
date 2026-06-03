@@ -14,5 +14,8 @@ out/
 .env.local
 npm-debug.log*
 
+# Vercel
+.vercel
+
 # Misc
 .DS_Store
